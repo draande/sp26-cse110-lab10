@@ -6,4 +6,4 @@
 
 ## Partners
 
-### Hemendra Ande, Hieu Le, James Villanueva
+### Hemendra Ande. Hieu Le. James Villanueva
