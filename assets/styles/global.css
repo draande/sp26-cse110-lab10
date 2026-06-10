@@ -1,23 +1,50 @@
 /* style.css */
 
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --panel-bg-color: #ffffff;
+  --link-color: rgb(155, 155, 155);
+  --link-hover-color: transparent;
+  --control-bg-color: #ffffff;
+  --control-border-color: rgb(118, 118, 118);
+  --textarea-text-color: gray;
+  --placeholder-color: rgb(196, 196, 196);
+}
+
 * {
   font-family: sans-serif;
 }
 
 body {
   align-items: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   display: grid;
   justify-items: center;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 body.blue {
-  background-color: lightblue;
+  --bg-color: lightblue;
+  --link-color: #000000;
 }
 
 body.blue>main {
-  background-color: white;
+  background-color: var(--panel-bg-color);
   border-radius: 5px;
   padding: 30px
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --panel-bg-color: #1f1f1f;
+  --link-color: #ffffff;
+  --control-bg-color: #1f1f1f;
+  --control-border-color: #8f8f8f;
+  --textarea-text-color: #ffffff;
+  --placeholder-color: #b8b8b8;
 }
 
 body, html {
@@ -32,33 +59,49 @@ h2 {
 }
 
 body>header {
-  display: grid;
+  display: flex;
   height: 20px;
-  justify-items: end;
+  justify-content: flex-end;
   padding-right: 55px;
   position: absolute;
   top: 20px;
   width: 100%;
 }
 
+body>header nav {
+  align-items: center;
+  column-gap: 16px;
+  display: flex;
+}
+
 body>header a {
-  border-bottom: 2px solid rgb(155, 155, 155);
-  color: rgb(155, 155, 155);
+  border-bottom: 2px solid var(--link-color);
+  color: var(--link-color);
   font-size: 1.4rem;
   padding-bottom: 2.5px;
   text-decoration: none;
 }
 
 body.blue>header a {
-  border-bottom: 2px solid black;
-  color: black;
+  border-bottom: 2px solid var(--link-color);
+  color: var(--link-color);
   font-size: 1.4rem;
   padding-bottom: 2.5px;
   text-decoration: none;
 }
 
 body>header a:hover {
-  border-bottom: 2px solid transparent;
+  border-bottom: 2px solid var(--link-hover-color);
+}
+
+#theme-toggle {
+  background-color: var(--control-bg-color);
+  border: 1px solid var(--control-border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  cursor: pointer;
+  min-height: 30px;
+  padding: 4px 10px;
 }
 
 main>section {
@@ -82,6 +125,12 @@ main>section {
   width: 425px;
 }
 
+button, select, textarea {
+  background-color: var(--control-bg-color);
+  border-color: var(--control-border-color);
+  color: var(--text-color);
+}
+
 #explore img {
   width: 75%;
 }
@@ -92,7 +141,7 @@ main>section {
 
 #explore textarea {
   box-sizing: border-box;
-  color: gray;
+  color: var(--textarea-text-color);
   font-size: 1.3rem;
   height: 150px;
   max-width: 425px;
@@ -101,7 +150,7 @@ main>section {
 }
 
 #explore textarea::placeholder {
-  color: rgb(196, 196, 196);
+  color: var(--placeholder-color);
 }
 
 #expose img {
